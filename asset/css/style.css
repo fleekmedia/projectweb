@@ -18,11 +18,44 @@ p{
     font-family: 'inter';
 
 }
+
+#spin {
+    color: white;
+}
+
+#spin:after {
+    content: "";
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        content: "Typing";
+    }
+
+    60% {
+        content: "add";
+    }
+
+    100% {
+        content: "Speaker";
+    }
+}
 /* bg-color */
 .bg-color{
     background-color: #15141A !important;
 }
-
+/* btn-shadow */
+.btn-shadow{
+    box-shadow: 1px 5px 15px 6px rgba(232, 227, 227, 1);
+}
+.btn-shadow:hover{
+    background: linear-gradient(92.48deg, #FF922D 0%, #FF622D 82.97%);
+    font-weight: bold;
+    color: white;
+    transform: scale(1.2);
+    transition: ease-in-out;
+}
 /* btn-color */
 .btn-bg{
     background: linear-gradient(92.48deg, #FF922D 0%, #FF622D 82.97%);
@@ -173,7 +206,7 @@ p{
 /*  */
 .stats-section {
     text-align: center;
-    padding: 50px 0;
+    /* padding: 50px 0; */
 }
 .stats-section h2 {
     font-size: 24px;
@@ -195,6 +228,7 @@ p{
 .stat-item h3::after {
     content: '';
     width: 30px;
+    background-color: #ffcc99;
     height: 30px;
     border-radius: 50%;
     position: absolute;
@@ -202,15 +236,37 @@ p{
     right: -20px;
     z-index: -1;
 }
-.stat-item:nth-child(1) h3::after {
+.item-stat h3::after{
+    content: '';
+    width: 30px;
+    background-color: #99ccff;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    z-index: -1;
+}
+.kd h3::after{
+    content: '';
+    width: 30px;
+    background-color: #ff99cc;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    z-index: -1;
+}
+/* .stat-item:nth-child(1) h3::after {
     background-color: #ffcc99;
 }
-.stat-item:nth-child(2) h3::after {
+.stat-item:nth-child(2) h4::after {
     background-color: #99ccff;
 }
-.stat-item:nth-child(3) h3::after {
+.stat-item:nth-child(3) h5::after {
     background-color: #ff99cc;
-}
+} */
 .stat-item p {
     font-size: 14px;
     color: #666666;
@@ -223,14 +279,15 @@ p{
     margin-bottom: 30px;
 }
 .faq-header h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 .faq-header h1 span {
     font-weight: 700;
 }
 .accordion-button {
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
+    font-size: .75rem;
     font-weight: 500;
 }
 .accordion-body {
@@ -239,12 +296,12 @@ p{
 }
 /*  */
 /*  */
-.recognition-section {
-    padding: 50px;
-}
+ .recognition-section {
+    padding: 20px;
+} 
 .recognition-title {
     font-size: 24px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .recognition-subtitle {
     font-size: 36px;
@@ -276,7 +333,7 @@ p{
 .sec-side{
     background-image: url('../img/Sectionbg.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 /*  */
 .testimonial-section {
@@ -427,9 +484,9 @@ p{
     width: 100%;
     border-radius: 10px;
 }
-.text-content {
+/* .text-content {
     padding-left: 30px;
-}
+} */
 .text-content h1 {
     font-size: 2rem;
     font-weight: bold;
@@ -449,9 +506,101 @@ p{
     .image-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .text-content {
+    /* .text-content {
         padding-left: 50px;
+    } */
+}
+/* responsive  */
+@media (min-width: 576px) { 
+    .recognition-section {
+        padding: 50px;
+    }
+    .faq-header h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+ }
+
+@media (min-width: 768px) { 
+    .recognition-section {
+        padding: 50px;
+    }
+    .faq-header h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+ }
+
+@media (min-width: 992px) { 
+    .recognition-section {
+        padding: 50px;
+    }
+    .faq-header h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+ }
+
+@media (min-width: 1200px) { 
+    .recognition-section {
+        padding: 50px;
+    }
+    .faq-header h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+ }
+
+@media (min-width: 1400px) { 
+    .recognition-section {
+        padding: 50px;
+    }
+    .faq-header h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+ }
+/* slider */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #333;
+    font-size: 10px !important;
+}
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+    font-size: 20px;
+    content: 'prev';
+}
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    content: 'next';
+    font-size: 20px;
+}
+/* Center images inside slides */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+/* slider */
+
+/* animastion */
+/* Rotating animation along the Y-axis */
+@keyframes rotateImageY {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
     }
 }
-/*  */
 
+/* Apply animation to the image */
+.rotating-img {
+    animation: rotateImageY 1s linear infinite;
+}
